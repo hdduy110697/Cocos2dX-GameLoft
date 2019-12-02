@@ -1,4 +1,6 @@
 #include "MainMenuScene.h"
+#include <cocos\ui\UICheckBox.h>
+#include <cocos\ui\UISlider.h>
 
 Scene* MainMenuScene::createScene()
 {
@@ -24,11 +26,14 @@ bool MainMenuScene::init()
 
 	// create menu by aray menu itom
 	auto itemPlay = MenuItemFont::create("Play", nullptr);
+	auto itemSound = MenuItemFont::create("Sound", CC_CALLBACK_1(MainMenuScene::soundCallback, this));
 	auto itemExit = MenuItemFont::create("Exit", CC_CALLBACK_1(MainMenuScene::menuCloseCallback, this));
 	itemPlay->setPosition(0, 70);
-	itemExit->setPosition(0, 20);
+	itemSound->setPosition(0, 20);
+	itemExit->setPosition(0, -30);
 	Vector<MenuItem*> menuItems;
 	menuItems.pushBack(itemPlay);
+	menuItems.pushBack(itemSound);
 	menuItems.pushBack(itemExit);
 
 	auto menu = Menu::createWithArray(menuItems);
@@ -45,6 +50,42 @@ void MainMenuScene::update(FLOAT deltaTime)
 void MainMenuScene::menuCloseCallback(Ref* pSender)
 {
 	exit(0);
+}
+void MainMenuScene::soundCallback(Ref* pSender)
+{
+	auto checkbox = ui::CheckBox::create("Sprites/checkbox_normal.png",
+		"Sprites/checkbox_pressed.png",
+		"Sprites/checkbox_checked.png",
+		"Sprites/checkbox_normal_disable.png",
+		"Sprites/checkbox_checked_disable.png");
+	checkbox->setPosition(Vec2(340,100));
+	checkbox->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type)
+		{
+			switch (type)
+			{
+			case ui::Widget::TouchEventType::BEGAN:
+				break;
+			case ui::Widget::TouchEventType::ENDED:
+				log("checkbox 1 clicked");
+				break;
+			default:
+				break;
+			}
+		});
+	this->addChild(checkbox);
+	// Slider
+	static auto slider = ui::Slider::create();
+	slider->loadBarTexture("Sprites/slider_bar_bg.png");
+	slider->loadSlidBallTextures("Sprites/slider_ball_normal.png", "Sprites/slider_ball_pressed.png", "Sprites/slider_ball_disable.png");
+	slider->loadProgressBarTexture("Sprites/slider_bar_pressed.png");
+	slider->setPercent(10);
+	slider->setPosition(Vec2(340, 50));
+	slider->addClickEventListener([](Ref* event) {
+		log("Slider: %d", slider->getPercent());
+		});
+	addChild(slider);
+
+
 }
 
 
