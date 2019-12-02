@@ -9,7 +9,9 @@ USING_NS_CC;
 class LogoScene :
 	public cocos2d::Scene
 {
-	public:
+public:
+	Sprite* ship;
+public:
 	static Scene* createScene();
 	virtual bool init();
 	void update(FLOAT deltaTime);
