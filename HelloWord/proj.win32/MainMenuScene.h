@@ -13,6 +13,8 @@ public:
 	virtual bool init();
 	void menuCloseCallback(Ref* pSender);
 	void soundCallback(Ref* pSender);
+	void aboutCallback(Ref* pSender);
+	void editNamePlayerCallback(Ref* pSender);
 	void update(FLOAT deltaTime);
 	CREATE_FUNC(MainMenuScene);
 };
