@@ -2,6 +2,7 @@
 #include "HelloWorldScene.h"
 #include <proj.win32\LoadingScene.h>
 #include <proj.win32\MainMenuScene.h>
+#include <proj.win32\GamePlayScene.h>
 Scene* LogoScene::createScene()
 {
 	return LogoScene::create();
@@ -57,7 +58,7 @@ void LogoScene::update(FLOAT deltaTime)
 {
 	a=a+deltaTime;
 	if (a >= 3) {
-		auto scene = MainMenuScene::createScene();
+		auto scene = GamePlayScene::createScene();
 		Director::getInstance()->replaceScene(scene);
 	}
 

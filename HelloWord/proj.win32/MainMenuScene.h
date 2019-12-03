@@ -8,6 +8,7 @@ class MainMenuScene :
 	public cocos2d::Scene
 {
 
+
 public:
 	static Scene* createScene();
 	virtual bool init();

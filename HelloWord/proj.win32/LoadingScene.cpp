@@ -31,11 +31,11 @@ bool LoadingScene::init()
 	animFrames.pushBack(spriteCache->getSpriteFrameByName("6.png"));
 	animFrames.pushBack(spriteCache->getSpriteFrameByName("7.png"));
 
-	//Tạo hình ảnh động
+	//animation
 	auto animation = Animation::createWithSpriteFrames(animFrames, 0.1f);
 	auto animate = Animate::create(animation);
 
-	//Gắn hình ảnh động cho bee và chạy nó lặp vô hạn
+	//ship animation
 	ship->runAction(RepeatForever::create(animate));
 
 	return true;
