@@ -10,16 +10,52 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Object">
+      <UniqueIdentifier>{10ed6ec3-80a8-44fb-b98c-f6b41db962af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Object\Scene">
+      <UniqueIdentifier>{77d7b900-f66f-4a88-addd-b20d68e48243}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src\Object\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResourceManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Bullet.cpp">
+      <Filter>src\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Rock.cpp">
+      <Filter>src\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object.cpp">
+      <Filter>src\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameOverScene.cpp">
+      <Filter>src\Object\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GamePlayScene.cpp">
+      <Filter>src\Object\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Object\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoadingScene.cpp">
+      <Filter>src\Object\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainMenuScene.cpp">
+      <Filter>src\Object\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SettingScene.cpp">
+      <Filter>src\Object\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpaceShooter.cpp">
+      <Filter>src\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -27,10 +63,40 @@
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src\Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResourceManager.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Bullet.h">
+      <Filter>src\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Rock.h">
+      <Filter>src\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object.h">
+      <Filter>src\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameOverScene.h">
+      <Filter>src\Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GamePlayScene.h">
+      <Filter>src\Object\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>src</Filter>
+      <Filter>src\Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoadingScene.h">
+      <Filter>src\Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainMenuScene.h">
+      <Filter>src\Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SettingScene.h">
+      <Filter>src\Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpaceShooter.h">
+      <Filter>src\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
