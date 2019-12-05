@@ -39,6 +39,7 @@ using namespace cocos2d::experimental;
 #include "audio/include/SimpleAudioEngine.h"
 using namespace CocosDenshion;
 #endif
+#include <LoadingScene.h>
 
 USING_NS_CC;
 
@@ -118,7 +119,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    auto scene = LoadingScene::createScene();
 
     // run
     director->runWithScene(scene);

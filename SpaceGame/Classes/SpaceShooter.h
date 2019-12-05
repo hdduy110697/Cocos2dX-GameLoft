@@ -4,7 +4,7 @@
 #include <list>
 #include <vector> 
 class SpaceShooter :
-	public Object
+	public ::Object
 {
 public:
 	std::list<Object*> m_bullet;

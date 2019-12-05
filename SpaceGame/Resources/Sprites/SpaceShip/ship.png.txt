@@ -1,0 +1,1 @@
+ship_01.png.png 0 0, ship_02.png.png 114 0, ship_03.png.png 228 0, ship_04.png.png 342 0, ship_05.png.png 0 119, ship_06.png.png 114 112, ship_07.png.png 228 115, ship_08.png.png 342 106.

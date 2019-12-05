@@ -9,19 +9,19 @@ class ResourceManager
 {
 public:
 	ResourceManager* s_instance;
-	string m_dataFolderPath;
-	map<char, cocos2d::Sprite*> m_sprites;
-	map<char, ui::Button*> m_button;
-	map<char, Label*> m_labels;
+	 string m_dataFolderPath;
+	 map<char, cocos2d::Sprite*> m_sprites;
+	 map<char, ui::Button*> m_buttons;
+	 map<char, Label*> m_labels;
 public:
 	ResourceManager();
 	~ResourceManager();
 	ResourceManager* GetInstance();
-	void Init(const string path);
-	void Load(string fileName);
-	Sprite* GetSpriteById(char id);
-	ui::Button* GetButtonById(char id);
-	Label* GetLabelById(char id);
+	 void Init(const string path);
+	 void Load(string fileName);
+	 Sprite* GetSpriteById(char id);
+	 ui::Button* GetButtonById(char id);
+	 Label* GetLabelById(char id);
 
 };
 

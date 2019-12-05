@@ -1,0 +1,15 @@
+#SPRITE 7
+1 Sprites/background.png
+2 Sprites/Logo/logo.png
+3 Sprites/Bullet/bullet.png
+4 Sprites/Rock/aestroid_dark.png
+5 Sprites/SpaceShip/spaceship.png
+6 Sprites/Loading/loading.png
+7 Sprites/Loading/progress.png
+#BUTTON 3
+1 Buttons/play_normal.png Buttons/play_pressed.png
+2 Buttons/resume_normal.png Buttons/resume_pressed.png
+3 Buttons/home_normal.png Buttons/home_pressed.png
+#FONT 2
+1 Fonts/MarkerFelt.ttf
+2 Fonts/arial.ttf

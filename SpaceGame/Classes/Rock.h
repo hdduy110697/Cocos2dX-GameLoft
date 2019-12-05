@@ -1,7 +1,7 @@
 #pragma once
 #include "Object.h"
 class Rock :
-	public Object
+	public ::Object
 {
 	Rock(cocos2d::Scene* scene);
 	~Rock();
