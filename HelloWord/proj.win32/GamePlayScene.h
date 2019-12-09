@@ -14,7 +14,7 @@ public:
 	void update(FLOAT deltaTime);
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
-	bool onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 	void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, Event* event);
 	void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode, Event* event);
 	CREATE_FUNC(GamePlayScene);

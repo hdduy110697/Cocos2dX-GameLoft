@@ -8,6 +8,7 @@ class SpaceShooter :
 {
 public:
 	std::list<Object*> m_bullet;
+	cocos2d::Scene* sceneGame;
 public:
 	SpaceShooter(cocos2d::Scene* scene);
 	~SpaceShooter();

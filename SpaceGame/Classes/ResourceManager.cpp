@@ -1,5 +1,5 @@
 #include "ResourceManager.h"
-
+ResourceManager* ResourceManager::s_instance;
 ResourceManager::ResourceManager()
 {
 }
@@ -10,6 +10,10 @@ ResourceManager::~ResourceManager()
 
 ResourceManager* ResourceManager::GetInstance()
 {
+	if (!s_instance)
+	{
+		s_instance = new ResourceManager();
+	}
 	return s_instance;
 }
 
@@ -46,7 +50,7 @@ void ResourceManager::Load(string fileName)
 		if (count == 1) {
 
 			auto sprite = Sprite::create(text);
-
+			sprite->retain();
 			m_sprites.insert({ (char)num,sprite });
 
 			continue;
@@ -56,6 +60,7 @@ void ResourceManager::Load(string fileName)
 		if (count == 2) {
 
 			auto button = ui::Button::create(text, text2);
+			button->retain();
 			m_buttons.insert({ (char)num,button });
 			continue;
 
@@ -64,6 +69,7 @@ void ResourceManager::Load(string fileName)
 		if (count == 3) {
 
 			auto label = Label::createWithTTF("Hello", text, 20);
+			label->retain();
 			m_labels.insert({ (char)num,label });
 		}
 
@@ -84,3 +90,5 @@ Label* ResourceManager::GetLabelById(char id)
 {
 	return m_labels.find(id)->second;
 }
+
+

@@ -3,6 +3,9 @@
 class Rock :
 	public ::Object
 {
+private:
+	cocos2d::Scene* gameScene;
+public:
 	Rock(cocos2d::Scene* scene);
 	~Rock();
 	void Init();
