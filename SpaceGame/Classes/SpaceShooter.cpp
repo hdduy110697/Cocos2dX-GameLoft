@@ -2,6 +2,7 @@
 #include <Bullet.h>
 #include <ResourceManager.h>
 #include <GameOverScene.h>
+#include <GamePlayScene.h>
 
 SpaceShooter::SpaceShooter(cocos2d::Scene* scene)
 {
@@ -30,22 +31,24 @@ void SpaceShooter::Shoot()
 int point = 0;
 void SpaceShooter::Collision(std::vector<Rock*> rocks)
 {
-	auto visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
+	auto Size = cocos2d::Director::getInstance()->getVisibleSize();
 
-	cocos2d::Vec2 origin = cocos2d::Director::getInstance()->getVisibleOrigin();
+	cocos2d::Vec2 originVis = cocos2d::Director::getInstance()->getVisibleOrigin();
 
 	for (std::vector<Rock*>::iterator it = rocks.begin(); it != rocks.end(); ++it) {
 
 		if (m_sprite->getBoundingBox().containsPoint((*it)->m_sprite->getPosition()))
 		{
 			//game over
+			auto scene = GameOverScene::createScene();
+			Director::getInstance()->replaceScene(scene);
 			point++;
 		}
 		else {
 			for (std::list<Object*>::iterator bullet = m_bullet.begin(); bullet != m_bullet.end(); ++bullet) {
 				if ((*it)->m_sprite->getBoundingBox().containsPoint((*bullet)->m_sprite->getPosition()) || (*it)->m_sprite->getPosition().y <= 0)
 				{
-					if ((*it)->m_sprite->getPosition().y > 0) {
+					if ((*it)->m_sprite->getPosition().y > 0||(*bullet)->m_sprite->getPosition().y>500) {
 
 						auto spriteCache = SpriteFrameCache::getInstance();
 						spriteCache->addSpriteFramesWithFile("Sprites/Blue/sprites.plist");
@@ -69,18 +72,17 @@ void SpaceShooter::Collision(std::vector<Rock*> rocks)
 
 					}
 					int xM = cocos2d::RandomHelper::random_int(-300, 300);
-					auto move = cocos2d::MoveBy::create(1, Vec2(-xM, -500));
+					auto move = cocos2d::MoveBy::create(3, Vec2(-xM, -480));
 					//set move
-					int x = cocos2d::RandomHelper::random_int(0, (int)(origin.x + visibleSize.width));
-					(*it)->m_sprite->setPosition(x, origin.y + visibleSize.height);
+					(*it)->m_sprite->stopAllActions();
+					int x = cocos2d::RandomHelper::random_int(0, (int)(originVis.x + Size.width));
+					(*it)->m_sprite->setPosition(x, originVis.y + Size.height);
 					(*it)->m_sprite->runAction(move);
 					if (m_bullet.size() == 0) {
 						break;
 					}
 
 				}
-				
-
 			}
 		}
 	}

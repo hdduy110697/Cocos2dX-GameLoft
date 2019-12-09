@@ -33,8 +33,6 @@ bool MainMenuScene::init()
 		});
 	playButton->removeFromParent();
 	addChild(playButton);
-
-	;
 	return true;
 
 }

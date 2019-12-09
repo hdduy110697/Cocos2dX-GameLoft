@@ -115,7 +115,7 @@ bool GamePlayScene::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 }
 
 int countTime = 0;
-
+int rockTime = 0;
 void GamePlayScene::update(FLOAT deltaTime)
 {
 
@@ -124,15 +124,22 @@ void GamePlayScene::update(FLOAT deltaTime)
 		m_spaceShip->Shoot();
 		auto bulletInList = this->m_spaceShip->m_bullet.back()->m_sprite;
 		addChild(bulletInList);
-		GenerateRock();
-		countTime = 0;
+		
+		countTime=0;
 	}
 	else
 	{
 		countTime++;
 	}
 	m_spaceShip->Collision(m_rocks);
-
+	if (rockTime == 100) {
+		GenerateRock();
+		rockTime = 0;
+	}
+	else
+	{
+		rockTime++;
+	}
 }
 
 void GamePlayScene::GenerateRock()
@@ -140,7 +147,7 @@ void GamePlayScene::GenerateRock()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	int x = cocos2d::RandomHelper::random_int(0, (int)(origin.x + visibleSize.width));
-	if(m_rocks.size()<30){
+	if(m_rocks.size()<10){
 		Rock* rock = new Rock(this);
 		m_rocks.push_back(rock);
 		rock->m_sprite->setPosition(x, origin.y + visibleSize.height);
